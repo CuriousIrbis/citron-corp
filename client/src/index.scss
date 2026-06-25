@@ -1,0 +1,20 @@
+@font-face {
+    font-family: 'Razer';
+    src: url('/src/assets/fonts/dehinted-RazerF5-Regular.ttf');
+}
+
+:root{
+    color: #E2E8F0;
+    font-family: 'Razer';
+}
+
+body{
+    background-image: linear-gradient(to bottom, #0F172A, #0D1117);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    min-height: 100vh;
+
+    padding: 0;
+    margin: 0;
+}
