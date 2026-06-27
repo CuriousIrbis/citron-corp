@@ -17,19 +17,22 @@ app.use(express.json());
 
 app.use('/api', root)
 
-// const server = app.listen(port, () => {
-//     console.log(`Сервер работает по порту: http://localhost:${port}`);
-// });
+if(!process.env.VERCEL){
+    const server = app.listen(port, () => {
+        console.log(`Сервер работает по порту: http://localhost:${port}`);
+    });
 
-// async function gracefulShutdown(){
-//     console.log('Остановка сервера ...');
+    async function gracefulShutdown(){
+        console.log('Остановка сервера ...');
 
-//     server.close(async () => {
-//         await prisma.$disconnect();
-//         console.log('Соединение с Prisma закрыто');
-//         process.exit(0);
-//     })
-// }
+        server.close(async () => {
+            await prisma.$disconnect();
+            console.log('Соединение с Prisma закрыто');
+            process.exit(0);
+        })
+    }
 
-// process.on('SIGTERM', gracefulShutdown);
-// process.on('SIGINT', gracefulShutdown);
+    process.on('SIGTERM', gracefulShutdown);
+    process.on('SIGINT', gracefulShutdown);
+}
+
