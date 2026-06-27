@@ -1,7 +1,7 @@
 import {Routes, Route} from 'react-router'
 import MainLayout from './layout';
-import Home from './pages/home'
-import Append from './pages/append';
+import Home from './components/pages/home'
+import Append from './components/pages/append';
 
 export default function App(){
   return (

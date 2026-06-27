@@ -1,3 +1,10 @@
+interface Employeer{
+    fullname: string
+    position: string
+    salary: number
+    hireYear: number
+}
+
 export default class Worker{
     fullname: string
     position: string
@@ -11,3 +18,5 @@ export default class Worker{
         this.hireYear=hireYear;
     }
 }
+
+export { type Employeer}
