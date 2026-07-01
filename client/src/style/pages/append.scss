@@ -1,0 +1,85 @@
+.append{
+    margin: 90px 217px;
+    padding: 30px;
+
+    border: 1px solid #E2E8F0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 50px;
+
+    h2{
+        border: 1px solid #E2E8F0;
+        padding: 10px 18px;
+        border-radius: 3px;
+    }
+
+    form{
+        display: flex;
+        flex-direction: column;
+
+        gap: 50px;
+
+        .person-info{
+            display: flex;
+            flex-direction: row;
+            div{
+                padding: 50px;
+                border-bottom: 1px solid #E2E8F0;
+                border-top: 1px solid #E2E8F0;
+                display: flex;
+                flex-direction: column;
+
+                gap: 69px;
+
+                input{
+                    border: none;
+                    background-color: transparent;
+                    color: #E2E8F0;
+
+                    font-size: 24px;
+
+                    padding: 10px;
+
+                    &::placeholder{
+                        color: #E2E8F0;
+                    }
+
+                    &:focus{
+                        outline: none;
+                    }
+
+                    &::-webkit-outer-spin-button,
+                    &::-webkit-inner-spin-button{
+                        appearance: none;
+                    }
+                }
+            }
+        }
+        button[type='submit']{
+            background-color: #2859C5;
+            color: #E2E8F0;
+
+            border: 1px solid #E2E8F0;
+            border-radius: 4px;
+
+            font-size: 16px;
+
+            padding: 10px 30px;
+
+            cursor: pointer;
+
+            max-width: fit-content;
+            align-self: center;
+
+            &:active{
+                color: #b6d3f8;
+            }
+        }
+
+    }
+
+
+}

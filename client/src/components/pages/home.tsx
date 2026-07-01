@@ -1,17 +1,33 @@
 import axios from 'axios'
-import {useEffect, useState} from 'react'
+import {useEffect, useRef, useState} from 'react'
 
 import type Employeer from '../interfaces/employeer'
 
+import SortBtn from '../../assets/svg/Сортировка вверх-вниз.svg';
+
+import '../../style/pages/home.scss'
+
+const selectOptions = [
+    "Имя",
+    "Должность",
+    "Зарплата",
+    "Год поступления"
+]
+
+const sortOptions = () => {
+    return selectOptions.map((value: string, index: number) => <option key={index} value={value}>{value}</option>);
+}
+
 export default function Home(){
+    const [isFlipped, setFlipped] = useState(false);
     const [employeers, setEmployeers] = useState<Array<Employeer>>(Array<Employeer>);
 
     async function get_employeers(){
-        const usersData = await axios.get('http://localhost:3000/api/users');
+        const usersData = await axios.get('http://localhost:3000/api/users/');
         setEmployeers(usersData.data);
     }
 
-    const makeEmployeers = (employeers: Array<Employeer>) => {
+    const handleMakeEmployeers = (employeers: Array<Employeer>) => {
         if(employeers.length === 0) {
             return (
                 <h2 className='employeer'>
@@ -19,35 +35,68 @@ export default function Home(){
                 </h2>
             );
         } else{
-            for(let employer of employeers){
-                return (
+            return employeers.map((employer) => {
+                return(
                     <div className='employeer'> 
-                        <div className='full-name'>
-                            <div>{employer.name}</div>
-                            <div>{employer.surname}</div>
-                            <div>{employer.secondname}</div>
-                        </div>
-                        <div>{employer.position}</div>
-                        <div>{employer.salary}</div>
-                        <div>{employer.comingyear}</div>
-                    </div>
+                         <div className='full-name'>
+                             <div>{employer.name}</div>
+                             <div>{employer.surname}</div>
+                             <div>{employer.secondname}</div>
+                         </div>
+                         <div>{employer.position}</div>
+                         <div>{employer.salary}</div>
+                         <div>{employer.comingyear}</div>
+                     </div>
                 )
-            }
+            })
+            // for(let employer of employeers){
+            //     return (
+            //         <div className='employeer'> 
+            //             <div className='full-name'>
+            //                 <div>{employer.name}</div>
+            //                 <div>{employer.surname}</div>
+            //                 <div>{employer.secondname}</div>
+            //             </div>
+            //             <div>{employer.position}</div>
+            //             <div>{employer.salary}</div>
+            //             <div>{employer.comingyear}</div>
+            //         </div>
+            //     )
+            // }
         }
         
-    } 
+    }
+
+    function handleFlip(){
+        setFlipped(!isFlipped);
+    }
 
     useEffect(() => {
         get_employeers()
-        makeEmployeers(employeers)
+        handleMakeEmployeers(employeers)
     }, [])
 
     return (
         <div className='home'>
             <section className='home-list'>
-                {makeEmployeers(employeers)}
+                {handleMakeEmployeers(employeers)}
             </section>
-            <section className='home-sort'></section>
+            <section className='home-sort'>
+                <div className='sorted-class'>
+                    <h2>Отсортировать сотрудников</h2>
+                    <select name="" id="">
+                        {sortOptions()}
+                    </select>
+                </div>
+                <img 
+                    src={SortBtn}
+                    onClick={() => handleFlip()}
+                    style={{
+                        transform: isFlipped ? 'rotate(180deg)': 'rotate(0deg)',
+                        transition: 'ease-in-out .3s'
+                    }}
+                />
+            </section>
         </div>
     )
 }

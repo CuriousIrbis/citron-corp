@@ -8,18 +8,13 @@
     font-family: 'Razer';
 }
 
-body, #root{
+body, #root, html{
     background-image: linear-gradient(to bottom, #0F172A, #0D1117);
-    background-repeat: no-repeat;
-    background-size: cover;
 
-    min-height: 100vh;
+    background-attachment: fixed;
+
     height: 100%;
 
     padding: 0;
     margin: 0;
-
-    display: grid;
-
-    grid-template-rows: auto 1fr auto;
 }
