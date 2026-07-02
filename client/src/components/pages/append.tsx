@@ -14,10 +14,11 @@ export default function Append(){
     const [salary, setSalary] = useState('')
     const [comingYear, setComingYear] = useState('')
 
-    async function handleSendEmployeer(){
+    async function handleSendEmployeer(ev: React.SubmitEvent){
+        ev.preventDefault();
 
         try{
-            const data = await axios.post('http://localhost:3000/api/users/', {
+            await axios.post('/api/users/', {
                 name: name,
                 surname: surname,
                 secondname: secondname,
@@ -26,12 +27,7 @@ export default function Append(){
                 comingYear: comingYear
             });
 
-            alert(data)
-
-            if(data.status >= 200 && data.status <= 300){
-                alert('Успешно записан')
-                navigate('/')
-            }
+            navigate('/')
         } catch(err){
             console.error(err)
         }
@@ -41,11 +37,11 @@ export default function Append(){
         <div className="append">
             <h2>Данные сотрудника</h2>
             
-            <form onSubmit={() => handleSendEmployeer()}>
+            <form onSubmit={(ev) => handleSendEmployeer(ev)}>
                 <div className='person-info'>
                     <div className='NSS'>
-                        <input type="text" value={name} onChange={(ev) => setName(ev.target.value)} placeholder='Имя'/>
                         <input type="text" value={surname} onChange={(ev) => setSurname(ev.target.value)} placeholder='Фамилия'/>
+                        <input type="text" value={name} onChange={(ev) => setName(ev.target.value)} placeholder='Имя'/>
                         <input type="text" value={secondname} onChange={(ev) => setSecondname(ev.target.value)} placeholder='Отчество'/>
                     </div>
                     <div className='Work'>

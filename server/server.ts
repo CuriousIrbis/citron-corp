@@ -7,12 +7,13 @@ import cors from 'cors'
 import root from './src/routes/root';
 import { prisma } from './src/models/prisma';
 
+const app = express();
+app.use(cors());
+
 dotenv.config();
 const port = process.env.PORT || 3000;
 
-const app = express();
 
-app.use(cors());
 
 app.use(express.json());
 

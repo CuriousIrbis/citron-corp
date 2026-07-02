@@ -24,10 +24,11 @@ router.post('/', async (req: Request, res: Response) => {
         });
 
         console.log(newUser);
-
+        res.send({
+            status: 201,
+            message: 'Пользователь создан'
+        })
         console.log('User has been written')
-
-        res.status(201).send(newUser)
     } catch(err){
         console.error(err)
     }

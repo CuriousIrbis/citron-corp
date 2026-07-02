@@ -23,7 +23,7 @@ export default function Home(){
     const [employeers, setEmployeers] = useState<Array<Employeer>>(Array<Employeer>);
 
     async function get_employeers(){
-        const usersData = await axios.get('http://localhost:3000/api/users/');
+        const usersData = await axios.get('/api/users/');
         setEmployeers(usersData.data);
     }
 
@@ -49,20 +49,6 @@ export default function Home(){
                      </div>
                 )
             })
-            // for(let employer of employeers){
-            //     return (
-            //         <div className='employeer'> 
-            //             <div className='full-name'>
-            //                 <div>{employer.name}</div>
-            //                 <div>{employer.surname}</div>
-            //                 <div>{employer.secondname}</div>
-            //             </div>
-            //             <div>{employer.position}</div>
-            //             <div>{employer.salary}</div>
-            //             <div>{employer.comingyear}</div>
-            //         </div>
-            //     )
-            // }
         }
         
     }
