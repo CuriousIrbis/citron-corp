@@ -23,7 +23,7 @@ export default function Home(){
     const [employeers, setEmployeers] = useState<Array<Employeer>>(Array<Employeer>);
 
     async function get_employeers(){
-        const usersData = await axios.get('/api/users/');
+        const usersData = await axios.get('http://localhost:3000/api/users/');
         setEmployeers(usersData.data);
     }
 

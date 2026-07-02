@@ -4,14 +4,14 @@ import react from '@vitejs/plugin-react'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-    server: {
-      proxy: {
-        // Все запросы, начинающиеся с /api, Vite перенаправит на бэкенд
-        '/api': {
-          target: 'http://localhost:3000', // Адрес вашего Express-сервера
-          changeOrigin: true,
-          secure: false,
-        }
-      }
-  }
+  //   server: {
+  //     proxy: {
+  //       // Все запросы, начинающиеся с /api, Vite перенаправит на бэкенд
+  //       '/api': {
+  //         target: 'http://localhost:3000', // Адрес вашего Express-сервера
+  //         changeOrigin: true,
+  //         secure: false,
+  //       }
+  //     }
+  // }
 })

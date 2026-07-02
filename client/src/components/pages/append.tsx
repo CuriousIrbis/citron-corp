@@ -18,7 +18,7 @@ export default function Append(){
         ev.preventDefault();
 
         try{
-            await axios.post('/api/users/', {
+            await axios.post('http://localhost:3000/api/users/', {
                 name: name,
                 surname: surname,
                 secondname: secondname,
