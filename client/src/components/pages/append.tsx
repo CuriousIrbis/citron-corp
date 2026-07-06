@@ -18,16 +18,25 @@ export default function Append(){
         ev.preventDefault();
 
         try{
-            await axios.post('http://localhost:3000/api/users/', {
-                name: name,
-                surname: surname,
-                secondname: secondname,
-                position: post,
-                salary: salary,
-                comingYear: comingYear
-            });
+            if(
+                surname.length == 0 || name.length == 0 ||
+                secondname.length == 0 || post.length == 0 ||
+                salary.length == 0 || comingYear.length == 0
+            ) {
+                alert('Нельзя добавлять сотрудника без данных')
+            } else {
+                await axios.post('http://localhost:3000/api/users/', {
+                    name: name,
+                    surname: surname,
+                    secondname: secondname,
+                    position: post,
+                    salary: salary,
+                    comingYear: comingYear
+                });
 
-            navigate('/')
+                navigate('/')
+            }
+
         } catch(err){
             console.error(err)
         }

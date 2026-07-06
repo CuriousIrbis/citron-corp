@@ -30,7 +30,7 @@ export default function Home(){
     const handleMakeEmployeers = (employeers: Array<Employeer>) => {
         if(employeers.length === 0) {
             return (
-                <h2 className='employeer'>
+                <h2>
                     Сотрудников нет
                 </h2>
             );
@@ -39,9 +39,7 @@ export default function Home(){
                 return(
                     <div className='employeer'> 
                          <div className='full-name'>
-                             <div>{employer.name}</div>
-                             <div>{employer.surname}</div>
-                             <div>{employer.secondname}</div>
+                            <span>{employer.surname} {employer.name}</span> <span>{employer.secondname}</span>
                          </div>
                          <div>{employer.position}</div>
                          <div>{employer.salary}</div>
@@ -64,7 +62,7 @@ export default function Home(){
 
     return (
         <div className='home'>
-            <section className='home-list'>
+            <section className={employeers.length == 0 ? '' : 'home-list'}>
                 {handleMakeEmployeers(employeers)}
             </section>
             <section className='home-sort'>

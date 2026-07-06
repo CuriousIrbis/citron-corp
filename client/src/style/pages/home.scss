@@ -7,7 +7,39 @@
     padding-inline: 106px;
 
     .home-list{
+        display: flex;
+
+        flex-direction: column;
+        gap: 20px;
+
+        border: #E2E8F0 1px solid;
         
+        .employeer{
+            display: flex;
+
+            flex-direction: row;
+            gap: 25px;
+
+            justify-content: space-between;
+
+            border: #E2E8F0 1px solid;
+
+            div{
+                max-width: 190px;
+                word-spacing: 25%;
+            }
+
+            .full-name{
+                display: flex;
+                flex-flow: row wrap;
+                justify-content: center;
+            }
+
+            font-size: 24px;
+
+            margin: 20px 32px;
+            padding: 25px 14px;
+        }
     }
 
     .home-sort{
