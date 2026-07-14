@@ -13,8 +13,6 @@ app.use(cors());
 dotenv.config();
 const port = process.env.PORT || 3000;
 
-
-
 app.use(express.json());
 
 app.use('/api', root)

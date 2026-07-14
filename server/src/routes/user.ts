@@ -34,4 +34,22 @@ router.post('/', async (req: Request, res: Response) => {
     }
 })
 
+router.delete('/', async (req: Request, res: Response) => {
+    const userId = req.body.userid;
+    
+    try{
+        await prisma.users.delete({
+            where: {
+                id: userId
+            }
+        })
+
+        res.status(200).json({
+            msg: 'Успешное увольнение'
+        })
+    } catch(err){
+        console.error(`Ошибка: ${err}`);
+    }
+})
+
 export {router};

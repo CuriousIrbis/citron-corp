@@ -1,0 +1,97 @@
+.delete{
+    min-height: 100vh;
+    margin-inline: 106px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 100px;
+
+    .input{
+        margin-top: 100px;
+
+        background-color: transparent;
+        border: 1px solid #E2E8F0;
+
+        color: #E2E8F0;
+
+        font-size: 16px;
+        padding: 10px 30px;
+
+        border-radius: 4px;
+
+        &:focus{
+            outline: none;
+        }
+    }
+
+    ul{
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+
+        width: 100%;
+
+        .data{
+            display: flex;
+            flex-direction: row;
+
+            justify-content: space-between;
+
+
+            width: 50%;
+        }
+
+        li{
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+
+            justify-content: space-between;
+            gap: 500px;
+
+            .employeer{
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+
+                justify-content: space-between;
+
+                .full-name{
+                    width: 100%;
+                    max-width: 150px;
+
+                    display: inline-flex;
+                    flex-flow: row wrap;
+                    justify-content: space-evenly;
+                }
+            }
+
+            .delete-employeer{
+                button{
+                    background-color: #2859C5;
+                    color: #E2E8F0;
+
+                    border: 1px solid #E2E8F0;
+                    border-radius: 4px;
+
+                    font-size: 16px;
+
+                    padding: 10px 30px;
+
+                    cursor: pointer;
+
+                    max-width: fit-content;
+                    align-self: center;
+
+                    &:active{
+                        color: #b6d3f8;
+                    }
+                }
+            }
+        }
+
+
+    }
+}

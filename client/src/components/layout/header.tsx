@@ -15,6 +15,7 @@ export default function Header(){
             <div className="bttns">
                 <NavLink to={'/'}>Посмотреть сотрудников</NavLink>
                 <NavLink to={'/append'}>Добавить сотрудника</NavLink>
+                <NavLink to={'/delete'}>Уволить сотрудника</NavLink>
             </div>
         </header>
     )
